@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/05/03/github-commit-failed/index.html">
 <meta property="og:site_name" content="FortBlog">
 <meta property="og:description" content="前阵子出去比赛，耽搁了好久学习的时间。回来学校后再拿起百度前端学院的题，完成之前没完成的一个任务。折腾了一天多，终于草草完成，但是打开本地的gitHub准备commit代码的时候出现了一个奇怪的问题：  commit failed  起初以为是这个仓库的问题，换了一个项目测试了一下也是同样无法提交。百思不得其解，然后百度了一下，但是感觉都跟我的问题原因不同。所幸，看到有人推荐了用命令行提交的方式观">
-<meta property="og:updated_time" content="2017-05-03T10:53:03.815Z">
+<meta property="og:updated_time" content="2017-05-03T11:00:52.789Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="github commit failed">
 <meta name="twitter:description" content="前阵子出去比赛，耽搁了好久学习的时间。回来学校后再拿起百度前端学院的题，完成之前没完成的一个任务。折腾了一天多，终于草草完成，但是打开本地的gitHub准备commit代码的时候出现了一个奇怪的问题：  commit failed  起初以为是这个仓库的问题，换了一个项目测试了一下也是同样无法提交。百思不得其解，然后百度了一下，但是感觉都跟我的问题原因不同。所幸，看到有人推荐了用命令行提交的方式观">
@@ -185,9 +185,9 @@
 <p>起初以为是这个仓库的问题，换了一个项目测试了一下也是同样无法提交。百思不得其解，然后百度了一下，但是感觉都跟我的问题原因不同。所幸，看到有人推荐了用命令行提交的方式观察错误。于是我打开git shell，用命令行提交了一次（这样提交会有错误提示信息，让你可以了解到无法commit的原因）：</p>
 <blockquote>
 <p><code>git add [file name] //添加需要commit的文件</code></p>
-</blockquote>
 <p><code>git status //检查发现文件添加成功</code></p>
 <p><code>git commit //失败，报错</code></p>
+</blockquote>
 <p>提示的错误是：</p>
 <blockquote>
 <p>unable to auto-detect email address</p>
@@ -195,8 +195,8 @@
 <p>这说明我的邮箱地址设置有问题，我打开gitHub客户端的设置，发现在Comfigure git 这个项目下，电子邮箱地址一栏是空的（我正要动手填写的时候，它帮我自动填充了，应该是从网页版获取到的？），在输入框下方有一段提示：</p>
 <blockquote>
 <p>This wil be used in the commits you create.Keep in mind that if you publish commits,anyone will have access to this email.</p>
-</blockquote>
 <p><strong>This wil change your global gitconfig.</strong></p>
+</blockquote>
 <p>显然，Configure git 选项下的用户名与电子邮箱是必须设置的。</p>
 <p>我保存设置后，回到提交界面，它已经恢复正常工作了。nice~~</p>
 
