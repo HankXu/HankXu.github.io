@@ -282,15 +282,17 @@
   
   
   <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
 <script>
-  var cloudTieConfig = {
+var cloudTieConfig = {
     url: "http://yoursite.com/2017/05/02/hello-world/", 
     sourceId: "hello-world",
     productKey: "25653f4c9e5a4bceb34f101966974078",
     target: "cloud-tie-wrapper"
-  };
+};
+var yunManualLoad = true;
+Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
 </script>
-<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
   
 
   
