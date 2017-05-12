@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://fortnight.xin/2017/05/12/Less学习的笔记/index.html">
 <meta property="og:site_name" content="FortBlog">
 <meta property="og:description" content="前言其实想学Less很久了，但是自己一贯的拖延症以及一堆“不知有什么意义的屁事”缠着，我拖了很久才开始真正观看视频学习（我也很难受啊）。其实类似Less的CSS扩展语言并非独此一家，但为什么我会选择Less呢？就是喜欢它的名字而已 (= &amp;gt; =)。我学习Less的初衷，并不是期望它能在我做项目的时候带来多少效率上的提升，因为作为学生，我所接触的项目还是比较简单的，学习它更多只是好奇与充实自己">
-<meta property="og:updated_time" content="2017-05-12T06:17:28.429Z">
+<meta property="og:updated_time" content="2017-05-12T06:19:23.643Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Less学习的笔记">
 <meta name="twitter:description" content="前言其实想学Less很久了，但是自己一贯的拖延症以及一堆“不知有什么意义的屁事”缠着，我拖了很久才开始真正观看视频学习（我也很难受啊）。其实类似Less的CSS扩展语言并非独此一家，但为什么我会选择Less呢？就是喜欢它的名字而已 (= &amp;gt; =)。我学习Less的初衷，并不是期望它能在我做项目的时候带来多少效率上的提升，因为作为学生，我所接触的项目还是比较简单的，学习它更多只是好奇与充实自己">
@@ -185,23 +185,11 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>其实想学Less很久了，但是自己一贯的拖延症以及一堆“不知有什么意义的屁事”缠着，我拖了很久才开始真正观看视频学习（我也很难受啊）。其实类似Less的CSS扩展语言并非独此一家，但为什么我会选择Less呢？就是喜欢它的名字而已 (= &gt; =)。我学习Less的初衷，并不是期望它能在我做项目的时候带来多少效率上的提升，因为作为学生，我所接触的项目还是比较简单的，学习它更多只是好奇与充实自己罢了。这一篇学习笔记的内容是我在观看慕课网上的Less教学视频时所作的记录，内容十分基础，想要获得更好的学习帮助的话可以前往Less的中文网站浏览文档。</p>
-<ul>
-<li><h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3></li>
-</ul>
-<p>Less是一门CSS预编译语言，其扩展了CSS语言，使样式更容易维护和扩展，编写好的Less最终会被编译成CSS文件，这意味着我们需要使用工具编译我们的Less文件，当然在浏览器端也可编译它，但是需要引入相关的js文件。使用node.js当然也是可以编译它的。另外国人开发的编译软件koala十分方便。</p>
-<ul>
-<li><h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3></li>
-</ul>
-<p>Less支持两种注释语法：<code>/**/</code> 和<code>//</code>。其中<code>/**/</code>在Less文件编译成CSS文件后仍保留。</p>
-<ul>
-<li><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3></li>
-</ul>
-<p>在Less中，使用<code>@变量名:数值(可以带单位)</code> 的方式定义变量，定义后变量可以作为样式的值使用，如：</p>
+<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><p>Less是一门CSS预编译语言，其扩展了CSS语言，使样式更容易维护和扩展，编写好的Less最终会被编译成CSS文件，这意味着我们需要使用工具编译我们的Less文件，当然在浏览器端也可编译它，但是需要引入相关的js文件。使用node.js当然也是可以编译它的。另外国人开发的编译软件koala十分方便。</p>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><p>Less支持两种注释语法：<code>/**/</code> 和<code>//</code>。其中<code>/**/</code>在Less文件编译成CSS文件后仍保留。</p>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>在Less中，使用<code>@变量名:数值(可以带单位)</code> 的方式定义变量，定义后变量可以作为样式的值使用，如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@charset &quot;utf-8&quot;;</div><div class="line">@test_width:300px;</div><div class="line">div&#123;</div><div class="line">  width:@test_width;</div><div class="line">  height:@test_width;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li><h3 id="混合"><a href="#混合" class="headerlink" title="混合"></a>混合</h3></li>
-</ul>
-<p><strong>混合之基本</strong>：在一段样式代码中，直接写上以前写过的样式的选择器，即可自动为当前元素加上以往写过的样式。如以下代码：</p>
+<h3 id="混合"><a href="#混合" class="headerlink" title="混合"></a>混合</h3><p><strong>混合之基本</strong>：在一段样式代码中，直接写上以前写过的样式的选择器，即可自动为当前元素加上以往写过的样式。如以下代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">.box&#123;</div><div class="line">  .border;</div><div class="line">  </div><div class="line">  width:100px;</div><div class="line">&#125;</div><div class="line">.border&#123;border:solid 1px #fff&#125;</div></pre></td></tr></table></figure>
 <p>等效于：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">  border:solid 1px #fff;</div><div class="line">  width:100px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -210,48 +198,28 @@
 <p><strong>混合之默认参数值</strong>：在形参后使用 <strong>‘:’</strong>，后跟要设置的默认值，当混合时未填入实参时使用默认值（<em>注：不填入参数也需紧跟括号</em>）。形式如下 ：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">.box&#123;</div><div class="line">  .border(2px);//实际宽度为2px</div><div class="line">  .border();//实际宽度为默认的1px</div><div class="line">&#125;</div><div class="line">.border(@border_width:1px)&#123;</div><div class="line">  border:solid @border_width #fff;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <a id="more"></a>
-<ul>
-<li><h3 id="匹配模式"><a href="#匹配模式" class="headerlink" title="匹配模式"></a>匹配模式</h3></li>
-</ul>
-<p>像是case分支语句，设置匹配条件，对满足条件的元素进行匹配。使用匹配模式用CSS实现一个三角形，且可以兼容IE。代码如下：</p>
+<h3 id="匹配模式"><a href="#匹配模式" class="headerlink" title="匹配模式"></a>匹配模式</h3><p>像是case分支语句，设置匹配条件，对满足条件的元素进行匹配。使用匹配模式用CSS实现一个三角形，且可以兼容IE。代码如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">//匹配模式</div><div class="line">//注意每个混合的第一个参数为一个字符串，其就是用于匹配的值</div><div class="line">.triangle(top,@width:5px,@color:#ccc)&#123;</div><div class="line">  border-width:@width;</div><div class="line">  border-color:@color transparent transparent transparent;//除了朝向的边不透明，其他边均为透明</div><div class="line">  border-style:solid dashed dashed dashed;//对于透明的边设置为虚线，目的是hack IE下的不兼容现象</div><div class="line">&#125;</div><div class="line"></div><div class="line">.triangle(bottom,@width:5px,@color:#ccc)&#123;</div><div class="line">  border-width:@width;</div><div class="line">  border-color:transparent transparent @color transparent;</div><div class="line">  border-style:dashed dashed solid dashed;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.triangle(left,@width:5px,@color:#ccc)&#123;</div><div class="line">  border-width:@width;</div><div class="line">  border-color:transparent transparent transparent @color;</div><div class="line">  border-style:dashed dashed dashed solid;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.triangle(right,@width:5px,@color:#ccc)&#123;</div><div class="line">  border-width:@width;</div><div class="line">  border-color:transparent @color transparent transparent;</div><div class="line">  border-style:dashed solid dashed dashed;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//此外，将此选择器的第一个参数写为：@_  则表示无论在何处引用此选择器的样式，都会默认带上此段样式。代码会更好的解释：</div><div class="line"></div><div class="line">.triangle(@_,@width:5px,@color:#ccc)&#123;</div><div class="line">  //两个形参不可以省略</div><div class="line">  overflow:hidden;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>效果展示为：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">.sanjiao&#123;</div><div class="line">  .trangle(top,10px,#fff);//如此就会有一个朝上的三角形</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>等价于：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">.sanjiao&#123;</div><div class="line">  overflow:hidden;</div><div class="line">  .trangle(top,10px,#fff);//如此就会有一个朝上的三角形</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li><h3 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h3></li>
-</ul>
-<p>Less中支持四则运算。且在一个操作数有单位的情况下，另外的操作时可以不带单位。特别的，颜色的数值也可以进行运算。如：</p>
+<h3 id="运算"><a href="#运算" class="headerlink" title="运算"></a>运算</h3><p>Less中支持四则运算。且在一个操作数有单位的情况下，另外的操作时可以不带单位。特别的，颜色的数值也可以进行运算。如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">@cal_1:300px;</div><div class="line"></div><div class="line">.box&#123;</div><div class="line">  width:(@cal_1+20)*5;  //由于变量带有单位了，因此运算时可以不再增加单位</div><div class="line">  color:#ccc-10  //这是符合规则的，less会自动计算最后的颜色值</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li><h3 id="嵌套规则"><a href="#嵌套规则" class="headerlink" title="嵌套规则"></a>嵌套规则</h3></li>
-</ul>
-<p>嵌套是Less中一个十分有趣的设定。直接在当前元素的某段css内部选择元素定义样式，则视为选择了当前元素的子元素。简单的：</p>
+<h3 id="嵌套规则"><a href="#嵌套规则" class="headerlink" title="嵌套规则"></a>嵌套规则</h3><p>嵌套是Less中一个十分有趣的设定。直接在当前元素的某段css内部选择元素定义样式，则视为选择了当前元素的子元素。简单的：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">ul&#123;……&#125;;</div><div class="line">ul li&#123;……&#125;;</div><div class="line">ul li a&#123;……&#125;;</div></pre></td></tr></table></figure>
 <blockquote>
 <p>等价于：</p>
 </blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">ul&#123;</div><div class="line">  ……</div><div class="line">  li&#123;</div><div class="line">    ……</div><div class="line">    a&#123;……&#125;;</div><div class="line">  &#125;;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>这样的嵌套最终都是直接选择后代元素，因此，建议将a的与li放在同级，因为ul li 、ul a与ul li a的相比，嵌套层级越少效率会更好，但是不可避免的，会有精确度的问题。</p>
-<blockquote>
 <p>在嵌套规则中，可以使用 <strong>&amp;</strong> 代表上一层级选择器，在伪类的使用上，这个设定就很方便。如下:</p>
-</blockquote>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">a&#123;</div><div class="line">  color:blue;</div><div class="line">  &amp;:hover&#123;</div><div class="line">    color:red;  //此时 &amp; 代表的是a这个选择器。</div><div class="line">  &#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//更灵活的用法：</div><div class="line">.title&#123;</div><div class="line">  ……</div><div class="line">  &amp;_nav&#123;</div><div class="line">   ……</div><div class="line">  &#125;      //这样&amp;_nav代表的就是.title_nav这个选择器</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li><h3 id="arguments变量"><a href="#arguments变量" class="headerlink" title="@arguments变量"></a>@arguments变量</h3></li>
-</ul>
-<p>@arguments包含了所有传递进来的参数。类似JS中的arguments这个类数组对象。使用方法如下：</p>
+<h3 id="arguments变量"><a href="#arguments变量" class="headerlink" title="@arguments变量"></a>@arguments变量</h3><p>@arguments包含了所有传递进来的参数。类似JS中的arguments这个类数组对象。使用方法如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">.border(@width:1px,@style:solid,@color:red)&#123;</div><div class="line">  border:@arguments;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.box_1&#123;</div><div class="line">  .border();  //此时border的属性为：1px solid red;</div><div class="line">&#125;</div><div class="line">.box_2&#123;</div><div class="line">  .border(10px);  //此时border的属性为:10px solid red;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li><h3 id="避免编译"><a href="#避免编译" class="headerlink" title="避免编译"></a>避免编译</h3></li>
-</ul>
-<p>当需要输出一些不正确的CSS语法或使用一些Less不认识的专有语法时，可以将代码用 <strong>单引号</strong>包裹，作为字符串，并在它前面加入 <strong>~</strong>符合。比如CSS3里提供了calc()这样一个计算函数，而Less不能识别这个语法，则我们就需要提醒Less不要编译这个地方，如：</p>
+<h3 id="避免编译"><a href="#避免编译" class="headerlink" title="避免编译"></a>避免编译</h3><p>当需要输出一些不正确的CSS语法或使用一些Less不认识的专有语法时，可以将代码用 <strong>单引号</strong>包裹，作为字符串，并在它前面加入 <strong>~</strong>符合。比如CSS3里提供了calc()这样一个计算函数，而Less不能识别这个语法，则我们就需要提醒Less不要编译这个地方，如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">.test&#123;</div><div class="line">  width:~&apos;calc(300px-30px)&apos;;  //如此Less将不会编译单引号内的代码，直接原封不动输出到CSS中</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li><h3 id="important"><a href="#important" class="headerlink" title="important"></a>important</h3></li>
-</ul>
-<p>在引用定义好的混合样式时，在其后面跟上 <strong>!important</strong>关键字就可以让混合样式中的所有样式都加上!important特性，提升它们的优先级。建议将其作为调试样式时的一种手段，而不要真正应用于编写的样式中。示例如下：</p>
+<h3 id="important"><a href="#important" class="headerlink" title="important"></a>important</h3><p>在引用定义好的混合样式时，在其后面跟上 <strong>!important</strong>关键字就可以让混合样式中的所有样式都加上!important特性，提升它们的优先级。建议将其作为调试样式时的一种手段，而不要真正应用于编写的样式中。示例如下：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">.border(@w:1px,@s:solid,@xx:red)&#123;</div><div class="line">  border:@arguments;</div><div class="line">  padding:10px;</div><div class="line">&#125;</div><div class="line"></div><div class="line">.test_box&#123;</div><div class="line">  .border() !important;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
 <p>最终效果就等价于：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">.test_box&#123;</div><div class="line">  border:1px solid red !important;</div><div class="line">  padding:10px !important;</div><div class="line">&#125;</div></pre></td></tr></table></figure>

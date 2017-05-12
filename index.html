@@ -185,23 +185,11 @@
     <div class="article-entry" itemprop="articleBody">
       
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>其实想学Less很久了，但是自己一贯的拖延症以及一堆“不知有什么意义的屁事”缠着，我拖了很久才开始真正观看视频学习（我也很难受啊）。其实类似Less的CSS扩展语言并非独此一家，但为什么我会选择Less呢？就是喜欢它的名字而已 (= &gt; =)。我学习Less的初衷，并不是期望它能在我做项目的时候带来多少效率上的提升，因为作为学生，我所接触的项目还是比较简单的，学习它更多只是好奇与充实自己罢了。这一篇学习笔记的内容是我在观看慕课网上的Less教学视频时所作的记录，内容十分基础，想要获得更好的学习帮助的话可以前往Less的中文网站浏览文档。</p>
-<ul>
-<li><h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3></li>
-</ul>
-<p>Less是一门CSS预编译语言，其扩展了CSS语言，使样式更容易维护和扩展，编写好的Less最终会被编译成CSS文件，这意味着我们需要使用工具编译我们的Less文件，当然在浏览器端也可编译它，但是需要引入相关的js文件。使用node.js当然也是可以编译它的。另外国人开发的编译软件koala十分方便。</p>
-<ul>
-<li><h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3></li>
-</ul>
-<p>Less支持两种注释语法：<code>/**/</code> 和<code>//</code>。其中<code>/**/</code>在Less文件编译成CSS文件后仍保留。</p>
-<ul>
-<li><h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3></li>
-</ul>
-<p>在Less中，使用<code>@变量名:数值(可以带单位)</code> 的方式定义变量，定义后变量可以作为样式的值使用，如：</p>
+<h3 id="工具"><a href="#工具" class="headerlink" title="工具"></a>工具</h3><p>Less是一门CSS预编译语言，其扩展了CSS语言，使样式更容易维护和扩展，编写好的Less最终会被编译成CSS文件，这意味着我们需要使用工具编译我们的Less文件，当然在浏览器端也可编译它，但是需要引入相关的js文件。使用node.js当然也是可以编译它的。另外国人开发的编译软件koala十分方便。</p>
+<h3 id="注释"><a href="#注释" class="headerlink" title="注释"></a>注释</h3><p>Less支持两种注释语法：<code>/**/</code> 和<code>//</code>。其中<code>/**/</code>在Less文件编译成CSS文件后仍保留。</p>
+<h3 id="变量"><a href="#变量" class="headerlink" title="变量"></a>变量</h3><p>在Less中，使用<code>@变量名:数值(可以带单位)</code> 的方式定义变量，定义后变量可以作为样式的值使用，如：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">@charset &quot;utf-8&quot;;</div><div class="line">@test_width:300px;</div><div class="line">div&#123;</div><div class="line">  width:@test_width;</div><div class="line">  height:@test_width;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
-<ul>
-<li><h3 id="混合"><a href="#混合" class="headerlink" title="混合"></a>混合</h3></li>
-</ul>
-<p><strong>混合之基本</strong>：在一段样式代码中，直接写上以前写过的样式的选择器，即可自动为当前元素加上以往写过的样式。如以下代码：</p>
+<h3 id="混合"><a href="#混合" class="headerlink" title="混合"></a>混合</h3><p><strong>混合之基本</strong>：在一段样式代码中，直接写上以前写过的样式的选择器，即可自动为当前元素加上以往写过的样式。如以下代码：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">.box&#123;</div><div class="line">  .border;</div><div class="line">  </div><div class="line">  width:100px;</div><div class="line">&#125;</div><div class="line">.border&#123;border:solid 1px #fff&#125;</div></pre></td></tr></table></figure>
 <p>等效于：</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">.box&#123;</div><div class="line">  border:solid 1px #fff;</div><div class="line">  width:100px;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
