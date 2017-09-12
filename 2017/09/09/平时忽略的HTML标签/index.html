@@ -15,7 +15,7 @@
 <meta property="og:url" content="http://fortnight.xin/2017/09/09/平时忽略的HTML标签/index.html">
 <meta property="og:site_name" content="FortBlog">
 <meta property="og:description" content="前言前几天偶然看到meta标签相关的文章，突然发现自己对于HTML标签的印象只局限于那些常用的div之流，虽然标签可以很容易查到，但是想想还是将那些平时忽略的标签都了解一下，记录下来，算是帮助加深一点印象吧。当然，那些不被推荐使用或已经废弃的标签或属性将不会被提及。 忽略的标签&amp;lt;meta&amp;gt;标签：它的功能是为文档提供那些由title, base, link, style, script标">
-<meta property="og:updated_time" content="2017-09-12T14:34:37.776Z">
+<meta property="og:updated_time" content="2017-09-12T14:53:03.193Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="平时忽略的HTML标签">
 <meta name="twitter:description" content="前言前几天偶然看到meta标签相关的文章，突然发现自己对于HTML标签的印象只局限于那些常用的div之流，虽然标签可以很容易查到，但是想想还是将那些平时忽略的标签都了解一下，记录下来，算是帮助加深一点印象吧。当然，那些不被推荐使用或已经废弃的标签或属性将不会被提及。 忽略的标签&amp;lt;meta&amp;gt;标签：它的功能是为文档提供那些由title, base, link, style, script标">
@@ -186,7 +186,53 @@
       
         <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>前几天偶然看到meta标签相关的文章，突然发现自己对于HTML标签的印象只局限于那些常用的div之流，虽然标签可以很容易查到，但是想想还是将那些平时忽略的标签都了解一下，记录下来，算是帮助加深一点印象吧。当然，那些不被推荐使用或已经废弃的标签或属性将不会被提及。</p>
 <h3 id="忽略的标签"><a href="#忽略的标签" class="headerlink" title="忽略的标签"></a>忽略的标签</h3><h4 id="lt-meta-gt-标签："><a href="#lt-meta-gt-标签：" class="headerlink" title="&lt;meta&gt;标签："></a><code>&lt;meta&gt;</code>标签：</h4><p>它的功能是为文档提供那些由title, base, link, style, script标签无法表现的元信息。它于文档头部定义，没有结束标签，标签共有4个标准属性：<code>content</code>、<code>name</code>、<code>http-equiv</code>、<code>charset</code>。使用时，应该至少包含<code>name</code>、<code>http-equiv</code>、<code>charset</code>中的一个属性，而且<code>name</code>或<code>http-equiv</code>都应该和<code>content</code>成对出现。<code>&lt;meta&gt;</code>标签的核心也正是由name/content或http-equiv/content组成的名值对，通过名值对的组合，可以为文档展示各种各样的元信息，或给浏览器传递一些编译指示指令。在我有意去了解<code>&lt;meta&gt;</code>标签前，我并不知道原来<code>&lt;mata&gt;</code>标签的<code>name</code>属性的值并不是只能由标准组织定义的，也就是说，<code>&lt;meta&gt;</code>标签可以被开发者自由扩展（只要合乎规范），而且经过这么久的时间，其实已经存在许多不同功能的<code>&lt;meta&gt;</code>标签了，并且，有一部分已经成了既存标准了。charset属性可以为页面指定字符集。name属性为content提供名/值对中的名称，主要为文档提供元信息，搜索引擎或其他一些东西可以通过元信息快速了解页面的信息从而达到优化页面效果等的目的。比如，过去在页面中填入一个name为‘keywords’的<code>&lt;meta&gt;</code>标签，并在content属性中填入合适的页面关键字，可以在SEO上取得不错的效果（但是后来搜索引擎将这方面的权重降低了，所以效果不如从前了）。http-equiv属性为content提供名/值对中的名称，作用是给浏览器传递编译指示指令。http-equiv是一个枚举属性，当一个<code>&lt;meta&gt;</code>标签含有合乎规范的http-equiv/content名值对时，浏览器应该按照这个名值对所对应的状态去运行页面。<br><a id="more"></a></p>
-<p>以下表格包含了被明确定义的http-equiv的名称、对应http state以及额外的说明：<br>| 名称           | HTTP State     |         说明  |<br>|:————————–:|:———————:|:——–:|<br>| content-language | Content Language | 指定页面默认语言，不规范，推荐直接使用lang |<br>| content-type | Encoding declaration | 指定页面字符集，不可与<code>&lt;meta charset&gt;</code>共存 |<br>| default-style | Default style | 设置默认的样式表文件名称|<br>| refresh| Refresh | 设置页面定时定向，content为’定时时间值’或’时间值;URL=url-string’ |<br>| set-cookie | Cookie setter | 设置cookie，不规范，推荐直接使用HTTP头设置cookie |<br>| x-ua-compatible| X-UA-Compatible | 控制IE用指定的内核渲染页面，如content可以为“IE=edge” |<br>| content-security-polic | Content security policy | 设置页面安全策略，如阻止所有行内脚本 |</p>
+<p>以下表格包含了被明确定义的http-equiv的名称、对应http state以及额外的说明：</p>
+<table>
+<thead>
+<tr>
+<th style="text-align:center">名称</th>
+<th style="text-align:center">HTTP State</th>
+<th style="text-align:center">说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align:center">content-language</td>
+<td style="text-align:center">Content Language</td>
+<td style="text-align:center">指定页面默认语言，不规范，推荐直接使用lang</td>
+</tr>
+<tr>
+<td style="text-align:center">content-type</td>
+<td style="text-align:center">Encoding declaration</td>
+<td style="text-align:center">指定页面字符集，不可与<code>&lt;meta charset&gt;</code>共存</td>
+</tr>
+<tr>
+<td style="text-align:center">default-style</td>
+<td style="text-align:center">Default style</td>
+<td style="text-align:center">设置默认的样式表文件名称</td>
+</tr>
+<tr>
+<td style="text-align:center">refresh</td>
+<td style="text-align:center">Refresh</td>
+<td style="text-align:center">设置页面定时定向，content为’定时时间值’或’时间值;URL=url-string’</td>
+</tr>
+<tr>
+<td style="text-align:center">set-cookie</td>
+<td style="text-align:center">Cookie setter</td>
+<td style="text-align:center">设置cookie，不规范，推荐直接使用HTTP头设置cookie</td>
+</tr>
+<tr>
+<td style="text-align:center">x-ua-compatible</td>
+<td style="text-align:center">X-UA-Compatible</td>
+<td style="text-align:center">控制IE用指定的内核渲染页面，如content可以为“IE=edge”</td>
+</tr>
+<tr>
+<td style="text-align:center">content-security-polic</td>
+<td style="text-align:center">Content security policy</td>
+<td style="text-align:center">设置页面安全策略，如阻止所有行内脚本</td>
+</tr>
+</tbody>
+</table>
 <p>既然列举了一些http-equiv属性了(<a href="https://whatwg-cn.github.io/html/#pragma-directives" target="_blank" rel="external">查看详细文档</a>)，那便索性也将那些常用且实用的name也一并给出吧：</p>
 <p><strong>description：</strong> 字面意思，页面描述，在content中填入一段页面的描述，对于SEO有一定帮助，一个页面只能有一个name为description的<code>&lt;meta&gt;</code>标签；</p>
 <p><strong>keywords：</strong> 页面关键词，content中填入与页面内容的关键词，并以逗号分隔，对于SEO有一定帮助，但是因为曾经有大量的站点为了SEO而填入大量虚假关键词，现在搜索引擎已经大幅降低了关键词的权重。<br><strong>referrer：</strong> 控制页面的referrer策略，如果content为空或不合法的取值，浏览器会自动选择no-referrer级别的策略（<a href="https://w3c.github.io/webappsec-referrer-policy/#referrer-policy" target="_blank" rel="external">referrer策略</a>）。</p>
