@@ -164,6 +164,80 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-平时忽略的HTML标签" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2017/09/09/平时忽略的HTML标签/">平时忽略的HTML标签</a>
+    </h1>
+  
+
+        
+        <a href="/2017/09/09/平时忽略的HTML标签/" class="archive-article-date">
+  	<time datetime="2017-09-09T13:05:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>前几天偶然看到meta标签相关的文章，突然发现自己对于HTML标签的印象只局限于那些常用的div之流，虽然标签可以很容易查到，但是想想还是将那些平时忽略的标签都了解一下，记录下来，算是帮助加深一点印象吧。当然，那些不被推荐使用或已经废弃的标签或属性将不会被提及。</p>
+<h3 id="忽略的标签"><a href="#忽略的标签" class="headerlink" title="忽略的标签"></a>忽略的标签</h3><h4 id="lt-meta-gt-标签："><a href="#lt-meta-gt-标签：" class="headerlink" title="&lt;meta&gt;标签："></a><code>&lt;meta&gt;</code>标签：</h4><p>它的功能是为文档提供那些由title, base, link, style, script标签无法表现的元信息。它于文档头部定义，没有结束标签，标签共有4个标准属性：<code>content</code>、<code>name</code>、<code>http-equiv</code>、<code>charset</code>。使用时，应该至少包含<code>name</code>、<code>http-equiv</code>、<code>charset</code>中的一个属性，而且<code>name</code>或<code>http-equiv</code>都应该和<code>content</code>成对出现。<code>&lt;meta&gt;</code>标签的核心也正是由name/content或http-equiv/content组成的名值对，通过名值对的组合，可以为文档展示各种各样的元信息，或给浏览器传递一些编译指示指令。在我有意去了解<code>&lt;meta&gt;</code>标签前，我并不知道原来<code>&lt;mata&gt;</code>标签的<code>name</code>属性的值并不是只能由标准组织定义的，也就是说，<code>&lt;meta&gt;</code>标签可以被开发者自由扩展（只要合乎规范），而且经过这么久的时间，其实已经存在许多不同功能的<code>&lt;meta&gt;</code>标签了，并且，有一部分已经成了既存标准了。charset属性可以为页面指定字符集。name属性为content提供名/值对中的名称，主要为文档提供元信息，搜索引擎或其他一些东西可以通过元信息快速了解页面的信息从而达到优化页面效果等的目的。比如，过去在页面中填入一个name为‘keywords’的<code>&lt;meta&gt;</code>标签，并在content属性中填入合适的页面关键字，可以在SEO上取得不错的效果（但是后来搜索引擎将这方面的权重降低了，所以效果不如从前了）。http-equiv属性为content提供名/值对中的名称，作用是给浏览器传递编译指示指令。http-equiv是一个枚举属性，当一个<code>&lt;meta&gt;</code>标签含有合乎规范的http-equiv/content名值对时，浏览器应该按照这个名值对所对应的状态去运行页面。<br>
+        
+          <a class="article-more-a" href="/2017/09/09/平时忽略的HTML标签/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2017/09/09/平时忽略的HTML标签/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-Vue学习笔记（一）-Vue实例" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -519,6 +593,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
             
             <div class="clearfix"></div>
