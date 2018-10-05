@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://fortnight.xin">
-  <title>Tag: HTML | FortBlog</title>
+  <title>「译」在CSS中使用Scroll Snapping控制页面滚动行为 | FortBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是许帅博-Fortnight的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="FortBlog">
-<meta property="og:url" content="http://fortnight.xin/tags/HTML/index.html">
+  <meta name="description" content="特别声明，本文翻译自@alligatorio的Control Page Scroll in CSS Using Scroll Snapping一文，受限于译者能力，译文或存在不足，欢迎大家指出。如需转载，烦请注明出处。    滚动捕捉「Scroll Snapping」是一项你肯定已经见过的技术。当实现得不佳时，它会十分惹人厌，给用户带来很差的浏览体验。但当实现得好的时候，它又会是用于实现展示内容">
+<meta name="keywords" content="学习,前端,HTML,翻译">
+<meta property="og:type" content="article">
+<meta property="og:title" content="「译」在CSS中使用Scroll Snapping控制页面滚动行为">
+<meta property="og:url" content="http://fortnight.xin/2018/10/05/译-使用Scroll Snapping实现CSS控制页面滚动/index.html">
 <meta property="og:site_name" content="FortBlog">
-<meta property="og:description" content="这是许帅博-Fortnight的博客">
+<meta property="og:description" content="特别声明，本文翻译自@alligatorio的Control Page Scroll in CSS Using Scroll Snapping一文，受限于译者能力，译文或存在不足，欢迎大家指出。如需转载，烦请注明出处。    滚动捕捉「Scroll Snapping」是一项你肯定已经见过的技术。当实现得不佳时，它会十分惹人厌，给用户带来很差的浏览体验。但当实现得好的时候，它又会是用于实现展示内容">
+<meta property="og:updated_time" content="2018-10-05T13:30:43.765Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="FortBlog">
-<meta name="twitter:description" content="这是许帅博-Fortnight的博客">
+<meta name="twitter:title" content="「译」在CSS中使用Scroll Snapping控制页面滚动行为">
+<meta name="twitter:description" content="特别声明，本文翻译自@alligatorio的Control Page Scroll in CSS Using Scroll Snapping一文，受限于译者能力，译文或存在不足，欢迎大家指出。如需转载，烦请注明出处。    滚动捕捉「Scroll Snapping」是一项你肯定已经见过的技术。当实现得不佳时，它会十分惹人厌，给用户带来很差的浏览体验。但当实现得好的时候，它又会是用于实现展示内容">
   
     <link rel="alternative" href="/atom.xml" title="FortBlog" type="application/atom+xml">
   
@@ -162,36 +164,77 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-译-使用Scroll Snapping实现CSS控制页面滚动" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2018" class="archive-year">2018</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2018/10/05/译-使用Scroll Snapping实现CSS控制页面滚动/" class="archive-article-date">
-  	<time datetime="2018-10-05T13:20:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-05</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2018/10/05/译-使用Scroll Snapping实现CSS控制页面滚动/">「译」在CSS中使用Scroll Snapping控制页面滚动行为</a>
+    <h1 class="article-title" itemprop="name">
+      「译」在CSS中使用Scroll Snapping控制页面滚动行为
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/10/05/译-使用Scroll Snapping实现CSS控制页面滚动/" class="archive-article-date">
+  	<time datetime="2018-10-05T13:20:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>特别声明，本文翻译自@alligatorio的<a href="https://alligator.io/css/scroll-snapping/" target="_blank" rel="external">Control Page Scroll in CSS Using Scroll Snapping</a>一文，受限于译者能力，译文或存在不足，欢迎大家指出。如需转载，烦请注明出处。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>滚动捕捉「Scroll Snapping」是一项你肯定已经见过的技术。当实现得不佳时，它会十分惹人厌，给用户带来很差的浏览体验。但当实现得好的时候，它又会是用于实现展示内容的功能的好方法，如图片画廊。过去滚动捕捉只能通过JavaScript实现，但现在得益于新的CSS滚动捕捉模块「<a href="https://www.w3.org/TR/css-scroll-snap-1/" target="_blank" rel="external">CSS Scroll Snap module</a>」，这种效果已经可以通过CSS实现了。</p>
+</blockquote>
+<p>同时令人庆幸的是浏览器可以根据用户的滚动方式自动控制并判断是否利用捕捉点「snap point」捕捉。这可以避免捕捉点阻碍平滑导航这种不好的用户体验。</p>
+<p>让我们简要介绍一下CSS中的滚动捕捉是如何工作的。</p>
+<h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><p>与<a href="https://alligator.io/css/css-grid-layout-intro/" target="_blank" rel="external">CSS grid</a>或者<a href="https://alligator.io/css/flexbox-primer/" target="_blank" rel="external">Flexbox</a>的使用类似，滚动捕捉的使用需要定义父级/容器元素，容器内的子元素会根据容器元素上定义的规则进行捕捉。</p>
+<p>Scroll Snapping的相关属性中有一些是应用在容器元素上的，而另一些则用于子元素。</p>
+<h2 id="容器元素属性：scroll-snap-type"><a href="#容器元素属性：scroll-snap-type" class="headerlink" title="容器元素属性：scroll-snap-type"></a>容器元素属性：scroll-snap-type</h2><p>容器元素上最重要的属性就是<code>scroll-snap-type</code>。它令一个普通元素成为一个捕捉容器「snap container」元素，并且通过这个属性可以定义滚动捕捉轴「snap axis」（取值可为：<code>x</code>,<code>y</code>,<code>block</code>,<code>inline</code>,<code>both</code>），同时这个属性还可以定义滚动捕捉的严格性「strictness」（取值可为：<code>none</code>,<code>proximity</code>,<code>mandatory</code>）.</p>
+<p>假设你想要某个容器在y轴上滚动，并且在任何情况下都进行滚动捕捉，那么你可以这样使用<code>scroll-snap-type</code>属性：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">  <span class="attribute">scroll-snap-type</span>: y mandatory;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果你想要在两个方向上都进行滚动捕捉，并且捕捉行为也不需要太过严格，那么你可以这样写：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">  <span class="attribute">scroll-snap-type</span>: both proximity;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="scroll-padding"><a href="#scroll-padding" class="headerlink" title="scroll-padding"></a>scroll-padding</h3><p>另一个作用于容器元素上的属性是<code>scroll-padding</code>，它允许为容器设置padding，以避免捕捉动作在容器的边缘触发。这个属性的赋值语法与<a href="https://alligator.io/css/padding-margin-shorthands/" target="_blank" rel="external">padding属性</a>的语法相同。<br><a id="more"></a></p>
+<h2 id="子元素属性：scroll-snap-align"><a href="#子元素属性：scroll-snap-align" class="headerlink" title="子元素属性：scroll-snap-align"></a>子元素属性：scroll-snap-align</h2><p>在滚动容器元素的子元素中，scroll-snap-align可能会是最重要的属性。它可以接收以下几个值，<code>none，start，end，center</code>，以指定元素是在开头、中间、还是结束时进行滚动捕获。基于滚动轴，并假设当前为从左到右的文本方向，那么start可以是顶部或左侧，而end可以是底部或右侧。</p>
+<p>你必须要设置元素的scroll-snap-align属性值，因为它的初始值是none，这表示不会执行任何的捕捉。</p>
+<h3 id="scroll-margin"><a href="#scroll-margin" class="headerlink" title="scroll-margin"></a>scroll-margin</h3><p>scroll-margin属性的使用方式与margin属性一样，它可以设置元素中的不同捕捉区域。</p>
+<h3 id="scroll-snap-stop"><a href="#scroll-snap-stop" class="headerlink" title="scroll-snap-stop"></a>scroll-snap-stop</h3><p>scroll-snap-stop属性的取值可以为：<code>normal</code>和<code>always</code>，通过这个属性可以指定元素是否强制应用捕捉点，即使用户的滚动行为通常会导致跳过捕捉。这个属性的初始值为<code>normal</code>。</p>
+<h2 id="案例"><a href="#案例" class="headerlink" title="案例"></a>案例</h2><p>接下来我们不再停留在理论和属性介绍上，来通过一些简单例子的演示一下吧。如果一个元素的滚动是基于y轴之上，且它的<code>scroll strictness</code>被设置为<code>mandatory</code>，如下面的代码所示：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">  <span class="attribute">scroll-snap-type</span>: y mandatory;</div><div class="line">  <span class="attribute">overflow-y</span>: scroll;</div><div class="line">  <span class="attribute">border</span>: <span class="number">2px</span> solid <span class="built_in">var</span>(--gs0);</div><div class="line">  <span class="attribute">border-radius</span>: <span class="number">8px</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">33vh</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.container</span> <span class="selector-tag">div</span> &#123;</div><div class="line">  <span class="attribute">scroll-snap-align</span>: start;</div><div class="line"></div><div class="line">  <span class="attribute">height</span>: <span class="number">33vh</span>;</div><div class="line">  <span class="attribute">display</span>: flex;</div><div class="line">  <span class="attribute">justify-content</span>: center;</div><div class="line">  <span class="attribute">align-items</span>: center;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">4rem</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.container</span> <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child(1)</span> &#123;</div><div class="line">  <span class="attribute">background</span>: hotpink;</div><div class="line">  <span class="attribute">color</span>: white;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.container</span> <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child(2)</span> &#123;</div><div class="line">  <span class="attribute">background</span>: azure;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.container</span> <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child(3)</span> &#123;</div><div class="line">  <span class="attribute">background</span>: blanchedalmond;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.container</span> <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child(4)</span> &#123;</div><div class="line">  <span class="attribute">background</span>: lightcoral;</div><div class="line">  <span class="attribute">color</span>: white;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>那么它的效果会像这样：</p>
+<div style="scroll-snap-type: y mandatory;overflow-y: scroll;border: 2px solid var(--gs0);border-radius: 8px;height: 33vh;"><div style="scroll-snap-align: start;height: 33vh;display: flex;justify-content: center;align-items: center;font-size: 4rem;background: hotpink;color: white;">1</div><div style="scroll-snap-align: start;height: 33vh;display: flex;justify-content: center;align-items: center;font-size: 4rem;background: azure;">2</div><div style="scroll-snap-align: start;height: 33vh;display: flex;justify-content: center;align-items: center;font-size: 4rem;background: blanchedalmond;">3</div><div style="scroll-snap-align: start;height: 33vh;display: flex;justify-content: center;align-items: center;font-size: 4rem;background: lightcoral;color: white;">4</div><br></div>
+
+<p>相反地，将<code>scroll strictness</code>属性设置为<code>proximity</code>，那么捕捉行为将只会在<code>snap point</code>的近距离范围内发生。</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">  <span class="comment">/* ... */</span></div><div class="line">  <span class="attribute">scroll-snap-type</span>: y proximity;</div><div class="line">  <span class="attribute">overflow-y</span>: scroll;</div><div class="line">&#125;</div><div class="line"></div><div class="line">  <span class="comment">/* ... */</span></div></pre></td></tr></table></figure>
+<div style="scroll-snap-type: y proximity;overflow-y: scroll;border: 2px solid var(--gs0);border-radius: 8px;height: 33vh;"><div style="scroll-snap-align: start;height: 33vh;display: flex;justify-content: center;align-items: center;font-size: 4rem;background: hotpink;color: white;">1</div><div style="scroll-snap-align: start;height: 33vh;display: flex;justify-content: center;align-items: center;font-size: 4rem;background: azure;">2</div><div style="scroll-snap-align: start;height: 33vh;display: flex;justify-content: center;align-items: center;font-size: 4rem;background: blanchedalmond;">3</div><div style="scroll-snap-align: start;height: 33vh;display: flex;justify-content: center;align-items: center;font-size: 4rem;background: lightcoral;color: white;">4</div><br></div>
+
+<p>最后，一起来看一下当「snap snapping」在两条轴上的滚动条上都产生的时候会是什么样子。图片画廊就是一个这种情况下的完美用例，而我们这里的容器也恰好是一个网格容器。</p>
+<p>首先，写好HTML：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">class</span>=<span class="string">"container2"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>1<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>2<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>3<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>4<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>5<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>6<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>7<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>8<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">div</span>&gt;</span>9<span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>然后是样式：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container2</span> &#123;</div><div class="line">  <span class="attribute">display</span>: grid;</div><div class="line">  <span class="attribute">grid-template-columns</span>: <span class="number">100%</span> <span class="number">100%</span> <span class="number">100%</span>;</div><div class="line">  <span class="attribute">scroll-snap-type</span>: both mandatory;</div><div class="line">  <span class="attribute">overflow</span>: scroll;</div><div class="line"></div><div class="line">  <span class="attribute">border</span>: <span class="number">2px</span> solid <span class="built_in">var</span>(--gs0);</div><div class="line">  <span class="attribute">border-radius</span>: <span class="number">8px</span>;</div><div class="line">  <span class="attribute">height</span>: <span class="number">33vh</span>;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"><span class="selector-class">.container2</span> <span class="selector-tag">div</span> &#123;</div><div class="line">  <span class="attribute">scroll-snap-align</span>: start;</div><div class="line"></div><div class="line">  <span class="attribute">height</span>: <span class="number">33vh</span>;</div><div class="line">  <span class="attribute">display</span>: flex;</div><div class="line">  <span class="attribute">justify-content</span>: center;</div><div class="line">  <span class="attribute">align-items</span>: center;</div><div class="line">  <span class="attribute">font-size</span>: <span class="number">4rem</span>;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.container2</span> <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child(1)</span> &#123;</div><div class="line">  <span class="attribute">background</span>: hotpink;</div><div class="line">  <span class="attribute">color</span>: white;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.container2</span> <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child(2)</span> &#123;</div><div class="line">  <span class="attribute">background</span>: azure;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.container2</span> <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child(3)</span> &#123;</div><div class="line">  <span class="attribute">background</span>: blanchedalmond;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.container2</span> <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child(4)</span> &#123;</div><div class="line">  <span class="attribute">background</span>: lightcoral;</div><div class="line">  <span class="attribute">color</span>: white;</div><div class="line">&#125;</div><div class="line"><span class="selector-class">.container2</span> <span class="selector-tag">div</span><span class="selector-pseudo">:nth-child(5)</span> &#123;</div><div class="line">  <span class="attribute">background</span>: rebeccapurple;</div><div class="line">  <span class="attribute">color</span>: white;</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="comment">/* ...你懂得 */</span></div></pre></td></tr></table></figure>
+<p>然后实现效果如下：</p>
+ <div class="container2" style="display: grid;grid-template-columns: 100% 100% 100%;scroll-snap-type: both mandatory;overflow: scroll;border: 2px solid var(--gs0);border-radius: 8px;height: 33vh;"><div style="scroll-snap-align: start;height: 33vh;display: flex;justify-content: center;align-items: center;font-size: 4rem;background: hotpink;color: white;">1</div><div style="scroll-snap-align: start;height: 33vh;display: flex;justify-content: center;align-items: center;font-size: 4rem;background: azure;">2</div><div style="scroll-snap-align: start;height: 33vh;display: flex;justify-content: center;align-items: center;font-size: 4rem;background: blanchedalmond;">3</div><div style="scroll-snap-align: start;height: 33vh;display: flex;justify-content: center;align-items: center;font-size: 4rem;background: lightcoral;color:white;">4</div><div style="scroll-snap-align: start;height: 33vh;display: flex;justify-content: center;align-items: center;font-size: 4rem;background: rebeccapurple;color:white;">5</div><div style="scroll-snap-align: start;height: 33vh;display: flex;justify-content: center;align-items: center;font-size: 4rem;background: lightslategray;color:white;">6</div><div style="scroll-snap-align: start;height: 33vh;display: flex;justify-content: center;align-items: center;font-size: 4rem;background: mediumvioletred;color:white;">7</div><div style="scroll-snap-align: start;height: 33vh;display: flex;justify-content: center;align-items: center;font-size: 4rem;background: seagreen;color:white;">8</div><div style="scroll-snap-align: start;height: 33vh;display: flex;justify-content: center;align-items: center;font-size: 4rem;background: tomato;color:white;">9</div></div>
+
+<h2 id="了解更多"><a href="#了解更多" class="headerlink" title="了解更多"></a>了解更多</h2><p>这篇文章浅显地向大家介绍了一些语法知识，如果你有兴趣了解更多的用例和查看更多示例，下面有几篇不错的文章。</p>
+<p><strong><a href="https://css-tricks.com/practical-css-scroll-snapping/" target="_blank" rel="external">Practical CSS Scroll Snapping</a></strong></p>
+<p><strong><a href="http://www.w3cplus.com/css/practical-css-scroll-snapping.html" target="_blank" rel="external">实战CSS Scroll Snapping（整理自Practical CSS Scroll Snapping）</a></strong></p>
+<p><strong><a href="https://developers.google.com/web/updates/2018/07/css-scroll-snap" target="_blank" rel="external">Well-Controlled Scrolling with CSS Scroll Snap</a></strong></p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -215,79 +258,102 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://fortnight.xin/2018/10/05/译-使用Scroll Snapping实现CSS控制页面滚动/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-      
-        </div></section>
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/09/09/平时忽略的HTML标签/" class="archive-article-date">
-  	<time datetime="2017-09-09T13:05:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-09-09</time>
-</a>
-        </div>
-    	 
+<nav id="article-nav">
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/09/09/平时忽略的HTML标签/">平时忽略的HTML标签</a>
-    </h1>
+  
+    <a href="/2017/09/09/平时忽略的HTML标签/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">平时忽略的HTML标签</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+<script>
+var cloudTieConfig = {
+  url: document.location.href, 
+  sourceId: "译-使用Scroll Snapping实现CSS控制页面滚动",
+  productKey: "25653f4c9e5a4bceb34f101966974078",
+  target: "cloud-tie-wrapper"
+};
+var yunManualLoad = true;
+Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+</script>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
 
 
           </div>
@@ -310,9 +376,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",

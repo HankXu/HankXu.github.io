@@ -164,6 +164,95 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-译-使用Scroll Snapping实现CSS控制页面滚动" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/05/译-使用Scroll Snapping实现CSS控制页面滚动/">「译」在CSS中使用Scroll Snapping控制页面滚动行为</a>
+    </h1>
+  
+
+        
+        <a href="/2018/10/05/译-使用Scroll Snapping实现CSS控制页面滚动/" class="archive-article-date">
+  	<time datetime="2018-10-05T13:20:35.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-05</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>特别声明，本文翻译自@alligatorio的<a href="https://alligator.io/css/scroll-snapping/" target="_blank" rel="external">Control Page Scroll in CSS Using Scroll Snapping</a>一文，受限于译者能力，译文或存在不足，欢迎大家指出。如需转载，烦请注明出处。</p>
+</blockquote>
+<hr>
+<blockquote>
+<p>滚动捕捉「Scroll Snapping」是一项你肯定已经见过的技术。当实现得不佳时，它会十分惹人厌，给用户带来很差的浏览体验。但当实现得好的时候，它又会是用于实现展示内容的功能的好方法，如图片画廊。过去滚动捕捉只能通过JavaScript实现，但现在得益于新的CSS滚动捕捉模块「<a href="https://www.w3.org/TR/css-scroll-snap-1/" target="_blank" rel="external">CSS Scroll Snap module</a>」，这种效果已经可以通过CSS实现了。</p>
+</blockquote>
+<p>同时令人庆幸的是浏览器可以根据用户的滚动方式自动控制并判断是否利用捕捉点「snap point」捕捉。这可以避免捕捉点阻碍平滑导航这种不好的用户体验。</p>
+<p>让我们简要介绍一下CSS中的滚动捕捉是如何工作的。</p>
+<h2 id="概览"><a href="#概览" class="headerlink" title="概览"></a>概览</h2><p>与<a href="https://alligator.io/css/css-grid-layout-intro/" target="_blank" rel="external">CSS grid</a>或者<a href="https://alligator.io/css/flexbox-primer/" target="_blank" rel="external">Flexbox</a>的使用类似，滚动捕捉的使用需要定义父级/容器元素，容器内的子元素会根据容器元素上定义的规则进行捕捉。</p>
+<p>Scroll Snapping的相关属性中有一些是应用在容器元素上的，而另一些则用于子元素。</p>
+<h2 id="容器元素属性：scroll-snap-type"><a href="#容器元素属性：scroll-snap-type" class="headerlink" title="容器元素属性：scroll-snap-type"></a>容器元素属性：scroll-snap-type</h2><p>容器元素上最重要的属性就是<code>scroll-snap-type</code>。它令一个普通元素成为一个捕捉容器「snap container」元素，并且通过这个属性可以定义滚动捕捉轴「snap axis」（取值可为：<code>x</code>,<code>y</code>,<code>block</code>,<code>inline</code>,<code>both</code>），同时这个属性还可以定义滚动捕捉的严格性「strictness」（取值可为：<code>none</code>,<code>proximity</code>,<code>mandatory</code>）.</p>
+<p>假设你想要某个容器在y轴上滚动，并且在任何情况下都进行滚动捕捉，那么你可以这样使用<code>scroll-snap-type</code>属性：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">  <span class="attribute">scroll-snap-type</span>: y mandatory;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>如果你想要在两个方向上都进行滚动捕捉，并且捕捉行为也不需要太过严格，那么你可以这样写：</p>
+<figure class="highlight css"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="selector-class">.container</span> &#123;</div><div class="line">  <span class="attribute">scroll-snap-type</span>: both proximity;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="scroll-padding"><a href="#scroll-padding" class="headerlink" title="scroll-padding"></a>scroll-padding</h3><p>另一个作用于容器元素上的属性是<code>scroll-padding</code>，它允许为容器设置padding，以避免捕捉动作在容器的边缘触发。这个属性的赋值语法与<a href="https://alligator.io/css/padding-margin-shorthands/" target="_blank" rel="external">padding属性</a>的语法相同。<br>
+        
+          <a class="article-more-a" href="/2018/10/05/译-使用Scroll Snapping实现CSS控制页面滚动/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">翻译</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/05/译-使用Scroll Snapping实现CSS控制页面滚动/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-平时忽略的HTML标签" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -224,86 +313,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2017/09/09/平时忽略的HTML标签/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-  
-    <article id="post-Vue学习笔记（一）-Vue实例" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/05/12/Vue学习笔记（一）-Vue实例/">Vue学习笔记（一）-Vue实例</a>
-    </h1>
-  
-
-        
-        <a href="/2017/05/12/Vue学习笔记（一）-Vue实例/" class="archive-article-date">
-  	<time datetime="2017-05-12T08:51:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-12</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>其实Vue并不是我接触的第一个前端框架，最开始了解到的反而是Angular以及React，去年甚至跟着官网学了一下NG2，但是后来因为各种原因，没有继续下去。之后有空了又发现了更容易上手的Vue，于是看着官方文档写了一些Demo，但是也没有持续的用它做完过一个完整的项目。现在我想要重新学习它，并应用于一个即将开动的项目。这个系列的文章都是我在学习过程的笔记，内容会比较散乱，也不会存在有深度的内容，毕竟只是个初学者 ~囧~。</p>
-<h3 id="is特性"><a href="#is特性" class="headerlink" title="is特性"></a>is特性</h3><p>在vue的官方文档中，提到Vue实现了is特性，那么何为is特性？<br>我们知道，在HTML标签越来越趋于语义化的现在，很多标签元素对于其子元素的种类是有限制的，如ul只能包含li作为子元素。而在Vue中，Vue组件非常类似于自定义元素，这意味着我们在ul中不能使用组件了。有is特性这样的尴尬就不复存在了：  </p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">&lt;ul&gt;</div><div class="line">  &lt;li is=&quot;myComponnet&quot;&gt;&lt;/li&gt;</div><div class="line">&lt;/ul&gt;</div></pre></td></tr></table></figure>
-<p>如此，我们就可以继续使用我们的组件了。</p>
-<h3 id="构造器"><a href="#构造器" class="headerlink" title="构造器"></a>构造器</h3><blockquote>
-<p>每个 Vue.js 应用都是通过构造函数 Vue 创建一个 Vue 的根实例启动的</p>
-</blockquote>
-<p>使用Vue构造器可以创建一个新的Vue实例，它的参数是一个对象，实例的属性都在这个选项对象中声明<br>
-        
-          <a class="article-more-a" href="/2017/05/12/Vue学习笔记（一）-Vue实例/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color4">Vue</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/05/12/Vue学习笔记（一）-Vue实例/">展开全文 >></a>
         </p>
       
 
@@ -572,6 +581,14 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">疑难杂症</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">笔记</a>
               </li>
              
@@ -584,19 +601,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color4">Vue</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">疑难杂症</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">随笔</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTML</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">翻译</a>
               </li>
             
             <div class="clearfix"></div>
