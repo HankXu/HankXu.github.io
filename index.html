@@ -87,6 +87,8 @@
 		        
 					<a class="jianshu" target="_blank" href="http://www.jianshu.com/u/331df558d455" title="jianshu"><i class="icon-jianshu"></i></a>
 		        
+					<a class="segmentfault" target="_blank" href="https://segmentfault.com/u/fortnight" title="segmentfault"><i class="icon-segmentfault"></i></a>
+		        
 					<a class="acfun" target="_blank" href="http://www.acfun.cn/u/967160.aspx#page=1" title="acfun"><i class="icon-acfun"></i></a>
 		        
 			</div>
@@ -132,6 +134,8 @@
 			        
 						<a class="jianshu" target="_blank" href="http://www.jianshu.com/u/331df558d455" title="jianshu"><i class="icon-jianshu"></i></a>
 			        
+						<a class="segmentfault" target="_blank" href="https://segmentfault.com/u/fortnight" title="segmentfault"><i class="icon-segmentfault"></i></a>
+			        
 						<a class="acfun" target="_blank" href="http://www.acfun.cn/u/967160.aspx#page=1" title="acfun"><i class="icon-acfun"></i></a>
 			        
 				</div>
@@ -163,6 +167,86 @@
           </div>
           <div id="js-content" class="content-ll">
             
+  
+    <article id="post-小谈Angular SSR项目的国际化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/10/26/小谈Angular SSR项目的国际化/">小谈Angular SSR项目的多语言处理</a>
+    </h1>
+  
+
+        
+        <a href="/2018/10/26/小谈Angular SSR项目的国际化/" class="archive-article-date">
+  	<time datetime="2018-10-25T16:07:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>特别声明，本文由<a href="http://fortnight.site/">Fortnight_许帅博</a>原创，受限于作者能力，文章或存在不足，欢迎大家指出。如需转载，烦请注明出处。</p>
+</blockquote>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>近日，我一直负责的项目已经成长到了一个较为稳定的状态，因此早前被搁下的国际化问题又重新提了出来，为此，我对ngx-translate这个库做了一些了解，但看完后我感到有些头疼，因为项目中的出现的文案文本都需要替换为语言包文件中对应的键名，这是个繁琐枯燥，又必须细心的工作。尽管ngx-translate有提供相关的包能提取需要翻译的字符串，但是它也需要开发者在代码加入一些标记，对于已经开发一段时间的项目而言，这样的工具意义倒是不大了。所以各位朋友若是也遇到有国际化需求的项目，都应该尽早接入，避免后期再做无意义地重复劳动。当然，抱怨不是本文的主题，闲话少说，我们进入正题吧。</p>
+<h3 id="Angular项目的多语言切换"><a href="#Angular项目的多语言切换" class="headerlink" title="Angular项目的多语言切换"></a>Angular项目的多语言切换</h3><p>Angular官网提供有一整套的国际化实现方案，初看时我觉得它功能强大，但文档中的一句话，让我毫不犹豫地放弃了官方方案：</p>
+<blockquote>
+<p>The command replaces the original messages with translated text, and generates a new version &gt;of the app in the target language.</p>
+<p>You need to build and deploy a separate version of the app for each supported language.</p>
+</blockquote>
+<p>每适配一种语言就生成和部署一个新的应用对我们目前的项目来说不太实际，因此我选择了另一个库——<a href="http://www.ngx-translate.com/" target="_blank" rel="external">ngx-translate</a>，这是一个非官方但却使用广泛的国际化库。通过这个库我们可以用service、pipe、directive等形式对文本进行多语言处理，十分方便易用。通过一些简单的代码，可以向大家展示如何使用ngx-translate实现Angular项目的多语言切换功能。</p>
+<p>首先我们安装好核心功能包：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install @ngx-translate/core --save</div></pre></td></tr></table></figure>
+        
+          <a class="article-more-a" href="/2018/10/26/小谈Angular SSR项目的国际化/#more">more >></a>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/10/26/小谈Angular SSR项目的国际化/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
   
     <article id="post-译-使用Scroll Snapping实现CSS控制页面滚动" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
@@ -607,6 +691,10 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">翻译</a>
               </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Angular</a>
+              </li>
             
             <div class="clearfix"></div>
           </ul>
@@ -656,7 +744,7 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
     
     	<section class="tools-section tools-section-me" q-show="aboutme">
   	  	
-  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;div style=&quot;color:rgb(255,255,255);text-align:center;line-height:35px;font-size:16px;text-shadow:none;&quot;&gt;许某&lt;br&gt;性急躁&lt;br&gt;少居韶关&lt;br&gt;好闲而恶劳&lt;br&gt;现就读于某大学&lt;br&gt;瞎混三余年&lt;br&gt;一无所长&lt;br&gt;惭愧也&lt;br&gt;惭愧&lt;br&gt;&lt;br&gt;现在前端道路上盲行~&lt;/div&gt;</div>
+  	  		<div class="aboutme-wrap" id="js-aboutme">&lt;div style=&quot;color:rgb(255,255,255);text-align:center;line-height:35px;font-size:16px;text-shadow:none;&quot;&gt;许某&lt;br&gt;性急躁&lt;br&gt;少居韶关&lt;br&gt;好闲而恶劳&lt;br&gt;将将毕业工作&lt;br&gt;瞎混廿余年&lt;br&gt;一无所长&lt;br&gt;惭愧也&lt;br&gt;惭愧&lt;br&gt;&lt;br&gt;现在前端道路上盲行~&lt;/div&gt;</div>
   	  	
     	</section>
     

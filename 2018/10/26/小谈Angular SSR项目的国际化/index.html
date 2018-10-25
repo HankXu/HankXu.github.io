@@ -6,17 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://fortnight.site">
-  <title>Tag: 随笔 | FortBlog</title>
+  <title>小谈Angular SSR项目的多语言处理 | FortBlog</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这是许帅博-Fortnight的博客">
-<meta property="og:type" content="website">
-<meta property="og:title" content="FortBlog">
-<meta property="og:url" content="http://fortnight.site/tags/随笔/index.html">
+  <meta name="description" content="特别声明，本文由Fortnight_许帅博原创，受限于作者能力，文章或存在不足，欢迎大家指出。如需转载，烦请注明出处。  前言近日，我一直负责的项目已经成长到了一个较为稳定的状态，因此早前被搁下的国际化问题又重新提了出来，为此，我对ngx-translate这个库做了一些了解，但看完后我感到有些头疼，因为项目中的出现的文案文本都需要替换为语言包文件中对应的键名，这是个繁琐枯燥，又必须细心的工作。">
+<meta name="keywords" content="笔记,前端,Angular">
+<meta property="og:type" content="article">
+<meta property="og:title" content="小谈Angular SSR项目的多语言处理">
+<meta property="og:url" content="http://fortnight.site/2018/10/26/小谈Angular SSR项目的国际化/index.html">
 <meta property="og:site_name" content="FortBlog">
-<meta property="og:description" content="这是许帅博-Fortnight的博客">
+<meta property="og:description" content="特别声明，本文由Fortnight_许帅博原创，受限于作者能力，文章或存在不足，欢迎大家指出。如需转载，烦请注明出处。  前言近日，我一直负责的项目已经成长到了一个较为稳定的状态，因此早前被搁下的国际化问题又重新提了出来，为此，我对ngx-translate这个库做了一些了解，但看完后我感到有些头疼，因为项目中的出现的文案文本都需要替换为语言包文件中对应的键名，这是个繁琐枯燥，又必须细心的工作。">
+<meta property="og:updated_time" content="2018-10-25T16:14:49.778Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="FortBlog">
-<meta name="twitter:description" content="这是许帅博-Fortnight的博客">
+<meta name="twitter:title" content="小谈Angular SSR项目的多语言处理">
+<meta name="twitter:description" content="特别声明，本文由Fortnight_许帅博原创，受限于作者能力，文章或存在不足，欢迎大家指出。如需转载，烦请注明出处。  前言近日，我一直负责的项目已经成长到了一个较为稳定的状态，因此早前被搁下的国际化问题又重新提了出来，为此，我对ngx-translate这个库做了一些了解，但看完后我感到有些头疼，因为项目中的出现的文案文本都需要替换为语言包文件中对应的键名，这是个繁琐枯燥，又必须细心的工作。">
   
     <link rel="alternative" href="/atom.xml" title="FortBlog" type="application/atom+xml">
   
@@ -166,68 +168,201 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-小谈Angular SSR项目的国际化" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2017" class="archive-year">2017</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2017/05/03/github-commit-failed/" class="archive-article-date">
-  	<time datetime="2017-05-03T10:46:56.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-05-03</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2017/05/03/github-commit-failed/">github客户端commit failed的解决办法</a>
+    <h1 class="article-title" itemprop="name">
+      小谈Angular SSR项目的多语言处理
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
+        
+        <a href="/2018/10/26/小谈Angular SSR项目的国际化/" class="archive-article-date">
+  	<time datetime="2018-10-25T16:07:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-10-26</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>特别声明，本文由<a href="http://fortnight.site/">Fortnight_许帅博</a>原创，受限于作者能力，文章或存在不足，欢迎大家指出。如需转载，烦请注明出处。</p>
+</blockquote>
+<h3 id="前言"><a href="#前言" class="headerlink" title="前言"></a>前言</h3><p>近日，我一直负责的项目已经成长到了一个较为稳定的状态，因此早前被搁下的国际化问题又重新提了出来，为此，我对ngx-translate这个库做了一些了解，但看完后我感到有些头疼，因为项目中的出现的文案文本都需要替换为语言包文件中对应的键名，这是个繁琐枯燥，又必须细心的工作。尽管ngx-translate有提供相关的包能提取需要翻译的字符串，但是它也需要开发者在代码加入一些标记，对于已经开发一段时间的项目而言，这样的工具意义倒是不大了。所以各位朋友若是也遇到有国际化需求的项目，都应该尽早接入，避免后期再做无意义地重复劳动。当然，抱怨不是本文的主题，闲话少说，我们进入正题吧。</p>
+<h3 id="Angular项目的多语言切换"><a href="#Angular项目的多语言切换" class="headerlink" title="Angular项目的多语言切换"></a>Angular项目的多语言切换</h3><p>Angular官网提供有一整套的国际化实现方案，初看时我觉得它功能强大，但文档中的一句话，让我毫不犹豫地放弃了官方方案：</p>
+<blockquote>
+<p>The command replaces the original messages with translated text, and generates a new version &gt;of the app in the target language.</p>
+<p>You need to build and deploy a separate version of the app for each supported language.</p>
+</blockquote>
+<p>每适配一种语言就生成和部署一个新的应用对我们目前的项目来说不太实际，因此我选择了另一个库——<a href="http://www.ngx-translate.com/" target="_blank" rel="external">ngx-translate</a>，这是一个非官方但却使用广泛的国际化库。通过这个库我们可以用service、pipe、directive等形式对文本进行多语言处理，十分方便易用。通过一些简单的代码，可以向大家展示如何使用ngx-translate实现Angular项目的多语言切换功能。</p>
+<p>首先我们安装好核心功能包：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install @ngx-translate/core --save</div></pre></td></tr></table></figure>
+<a id="more"></a>
+<p>为了能通过http请求获取语言包，我们需要安装另一个包：</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install @ngx-translate/http-loader --save</div></pre></td></tr></table></figure>
+<p>ngx-translate的使用十分简单，我们只需在根模块中导入TranslateModule，引入多语言的核心实现，便可以在模板代码中使用它的管道或指令对文本进行多语言处理；若要在组件代码中使用，则只需要注入TranslateService即可调用模块提供的API对文本进行处理。需要说明的是，对于一个较大的应用来说，将所有语言的语言包写入代码里会增加应用的体积，且不便于管理，因此，我们需要导入HttpClientModule，结合ngx-translate提供的http-loader库，通过http请求获取特定的语言包。</p>
+<p>我们事先在Angular项目的assets/i18n目录下，准备两个Json格式的语言包文件，内容如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">// en_US.json</div><div class="line">&#123;</div><div class="line">    "title": "Welcome to &#123;&#123; title &#125;&#125;！",</div><div class="line">    "tip": "Here are buttons to change app’s language:"</div><div class="line">&#125;</div><div class="line"></div><div class="line">// zh_CNS.json</div><div class="line">&#123;</div><div class="line">    "title": "欢迎来到 &#123;&#123; title &#125;&#125;！",</div><div class="line">    "tip": "这里有一些按钮可以切换应用的语言:"</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>然后在根模块中引入必要的库：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// app.module.ts</span></div><div class="line"><span class="keyword">import</span> &#123; BrowserModule &#125; <span class="keyword">from</span> <span class="string">'@angular/platform-browser'</span>;</div><div class="line"><span class="keyword">import</span> &#123; NgModule &#125; <span class="keyword">from</span> <span class="string">'@angular/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123; TranslateModule, TranslateLoader &#125; <span class="keyword">from</span> <span class="string">'@ngx-translate/core'</span>;</div><div class="line"><span class="keyword">import</span> &#123; TranslateHttpLoader &#125; <span class="keyword">from</span> <span class="string">'@ngx-translate/http-loader'</span>;</div><div class="line"><span class="keyword">import</span> &#123; HttpClient, HttpClientModule &#125; <span class="keyword">from</span> <span class="string">'@angular/common/http'</span>;</div><div class="line"><span class="keyword">import</span> &#123; AppComponent &#125; <span class="keyword">from</span> <span class="string">'./app.component'</span>;</div><div class="line"></div><div class="line"><span class="comment">// 提供必备的loader方法</span></div><div class="line"><span class="keyword">export</span> <span class="function"><span class="keyword">function</span> <span class="title">HttpLoaderFactory</span>(<span class="params">http: HttpClient</span>) </span>&#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> TranslateHttpLoader(http, <span class="string">'/assets/i18n/'</span>, <span class="string">'.json'</span>);</div><div class="line">&#125;</div><div class="line"></div><div class="line"><span class="meta">@NgModule</span>(&#123;</div><div class="line">  declarations: [AppComponent],</div><div class="line">  imports: [</div><div class="line">      BrowserModule,</div><div class="line">      HttpClientModule,</div><div class="line">      TranslateModule.forRoot(&#123;</div><div class="line">      loader: &#123;</div><div class="line">          provide: TranslateLoader,</div><div class="line">          useFactory: HttpLoaderFactory,</div><div class="line">          deps: [HttpClient]  <span class="comment">// deps中的元素需要与HttpLoaderFactory方法的参数顺序一致</span></div><div class="line">          &#125;</div><div class="line">      &#125;)</div><div class="line">  ],</div><div class="line">  providers: [],</div><div class="line">  bootstrap: [AppComponent]</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppModule &#123; &#125;</div></pre></td></tr></table></figure>
+<p>引入必需的模块后，我们将模板中的文本都使用语言包的键代替，并使用ngx-transalte提供的管道或指令进行处理：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> <span class="attr">style</span>=<span class="string">"text-align:center"</span>&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">h1</span>&gt;</span></div><div class="line">    &#123;&#123;'title' | translate: &#123;'title': title&#125; &#125;&#125;</div><div class="line">  <span class="tag">&lt;/<span class="name">h1</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">h2</span>&gt;</span>&#123;&#123;'tip' | translate&#125;&#125;<span class="tag">&lt;/<span class="name">h2</span>&gt;</span></div><div class="line"></div><div class="line"><span class="tag">&lt;<span class="name">button</span> (<span class="attr">click</span>)=<span class="string">"changeLang('zh')"</span>&gt;</span>中文<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div><div class="line"><span class="tag">&lt;<span class="name">button</span> (<span class="attr">click</span>)=<span class="string">"changeLang('en')"</span>&gt;</span>English<span class="tag">&lt;/<span class="name">button</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>在模板中做了多语言处理是不够的，我们还需要在组件中注入TranslateService，使用其中的一些API实现诸如切换应用语言、获取浏览器语言、处理多语言文本等功能。如下例所示，我们对应用的语言类型做了初始化，并提供了一个简易的语言切换功能。</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppComponent <span class="keyword">implements</span> OnInit&#123;</div><div class="line">  title = <span class="string">'Translate Demo'</span>;</div><div class="line">  langs = &#123;</div><div class="line">    zh: <span class="string">'zh_CNS'</span>,</div><div class="line">    en: <span class="string">'en_US'</span></div><div class="line">  &#125;</div><div class="line"></div><div class="line">  <span class="keyword">constructor</span>(<span class="params"><span class="keyword">private</span> translate: TranslateService</span>) &#123; &#125;</div><div class="line"></div><div class="line">  ngOnInit() &#123;</div><div class="line">    <span class="keyword">const</span> defaultLang = <span class="keyword">this</span>.langs[<span class="keyword">this</span>.translate.getBrowserLang() || <span class="string">'zh'</span>];</div><div class="line">    <span class="keyword">this</span>.translate.getTranslation(defaultLang).subscribe(<span class="function"><span class="params">res</span> =&gt;</span> &#123;</div><div class="line">      res ? <span class="keyword">this</span>.translate.use(defaultLang) : alert(<span class="string">'获取语言文件失败'</span>);</div><div class="line">    &#125;)</div><div class="line">  &#125;</div><div class="line"></div><div class="line">  changeLang(lang: <span class="built_in">string</span>) &#123;</div><div class="line">    <span class="keyword">const</span> langKey = <span class="keyword">this</span>.langs[lang] || <span class="string">'zh_CNS'</span>;</div><div class="line">    <span class="keyword">this</span>.translate.use(langKey)</div><div class="line">  &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>示例十分简单，通过这样的简单示例可以看出，ngx-translate确实是一个易用的库，并且，细心的人一定会发现ngx-translate是支持插值表达式的。在大部分的场景中，我们的产品的文本都是静态的，这样的文本进行多语言处理较为简单，但总有一些时候我们不可避免地需要使用到动态文本，而ngx-translate对于插值表达式的支持则解决了动态文本进行多语言处理难的问题。</p>
+<p>在示例之外，ngx-translate还有其他强大的用法与API，想要了解更多的话可以阅读ngx-translate的官方文档。</p>
+<p>另外在本段结束前，有几个小tips可以与大家分享：</p>
+<ol>
+<li>ngx-translate的v10版本必须要在Angular6及以上的版本中使用，否则会报错。</li>
+<li>使用管道处理模板中的文本或许会优于使用指令，因为使用管道可以在语言切换后立刻重新输出对应语种的文本到模板中。</li>
+</ol>
+<h3 id="服务端渲染下的问题与解决方案"><a href="#服务端渲染下的问题与解决方案" class="headerlink" title="服务端渲染下的问题与解决方案"></a>服务端渲染下的问题与解决方案</h3><p>在为项目加入多语言切换功能后，我本以为难题已经解决，但在后续的开发与调试中我发现了一个奇怪的问题，在页面初次加载时，总是会看到语言包的键被直接渲染在了页面上的毛刺现象，虽然这种现象转瞬即逝但也十分显眼并且难以忍受。</p>
+<p>在查看过页面资源请求后我发现了问题所在。在页面初次加载时，模板资源的请求要先于语言包文件的请求，所以在页面在客户端渲染时，语言包资源实际还没就绪，因此在那一瞬间填写在模板中的语言包键名便直接被渲染在了页面中。至此我已经掌握了页面加载出现这种毛刺现象的根本原因：页面渲染时语言包资源未到位。</p>
+<p>但转念一想，我们的项目使用了服务端渲染技术，那么页面在服务端应该是已经进行过预渲染的，换句话说，页面在服务端已经完成过一次：获取语言包——渲染页面这一流程才对，那为何在页面首次加载时仍然会存在毛刺现象？是否页面根本没在服务端完成我们设想的渲染流程呢？带着疑问我查看了客户端获取的页面模板，果然，客户端获取的模板中充斥着原始的语言包键名，查看代码后我发现应用语言的初始化相关操作都被限制在客户端中运行，这样的话相当于页面在服务端渲染时并未将语言包的键名替换为真正的文案文本。</p>
+<p>在对代码稍作调整后，我重新启动了应用，这时候页面加载时的效果较之前有了变化，我明显看到了页面在最开始的时刻是正常显示的，但一瞬间后页面中的文本变成了语言包的键名，片刻之后键名又再度恢复为正常的文本，而客户端获取的模板文件中填充的分明是正常的文本，那为何还会出现毛刺现象呢？经过一番了解后我得知，Angular目前的服务端渲染并不支持<em>DOM hydration</em>，通俗地说，Angular服务端渲染所产生的预渲染DOM并没有在客户端复用，因此在客户端会重建所有的DOM，即预渲染的页面在客户端又重渲染了一遍，于是我们回到了最初的起点：页面在客户端渲染时语言包资源仍然未就绪。</p>
+<p>既然Angular的服务端渲染本身无法实现首次刷新无毛刺的效果，那么我们稍微变换一下思路，能否将语言包资源与模板同时返回给客户端呢？答案是肯定的。通过Angular提供的状态转移功能，我们可以在服务端获取语言包，并将其与模板一同返回给客户端，如此客户端在渲染模板时便能直接获取到键值对应的文本，从而避免键值直接渲染在页面中的问题。</p>
+<p>解决这个问题的核心技术就是Angular的<a href="https://angular.io/api/platform-browser/TransferState" target="_blank" rel="external">TransferState</a>，除此之外我们还需要结合ngx-translate的自定义loader功能。</p>
+<p>首先我们需要先建立两个自定义loader，分别处理服务端与客户端的语言包获取，具体实现代码如下：</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line">// translate-server-loader.service.ts</div><div class="line">export class TranslateServerLoader implements TranslateLoader &#123;</div><div class="line"></div><div class="line">    constructor(</div><div class="line">        private prefix: string = 'i18n',</div><div class="line">        private suffix: string = '.json',</div><div class="line">        private transferState: TransferState</div><div class="line">        ) &#123; &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">    * 实现TranslateLoader的类必须要提供getTranslation方法，并返回一个Observable实例</div><div class="line">    */</div><div class="line">    public getTranslation(lang: string): Observable&lt;any&gt; &#123;</div><div class="line"></div><div class="line">        return Observable.create(observer =&gt; &#123;</div><div class="line">            // 拼接语言包文件所在的目录</div><div class="line">            const assets_folder = join(process.cwd(), 'dist', 'browser', this.prefix);</div><div class="line">            // 读取目录下的语言包文件</div><div class="line">            const jsonData = JSON.parse(fs.readFileSync(`$&#123;assets_folder&#125;/$&#123;lang&#125;$&#123;this.suffix&#125;`, 'utf8'));</div><div class="line">            // 将语言包内容存储在 transferState 中</div><div class="line">            const key: StateKey&lt;number&gt; = makeStateKey&lt;number&gt;('transfer-translate-' + lang);</div><div class="line">            this.transferState.set(key, jsonData);</div><div class="line"></div><div class="line">            observer.next(jsonData);</div><div class="line">            observer.complete();</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在服务端处调用的loader的将会以文件读取的方式获得当前应用所使用的语言包，并通过transfer-state传递至客户端，保证模板与语言包同时回到客户端。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div></pre></td><td class="code"><pre><div class="line">// translate-browser-loader.service.ts</div><div class="line">export class TranslateBrowserLoader implements TranslateLoader &#123;</div><div class="line"></div><div class="line">    constructor(</div><div class="line">        private prefix: string = 'i18n',</div><div class="line">        private suffix: string = '.json',</div><div class="line">        private transferState: TransferState,</div><div class="line">        private http: HttpClient</div><div class="line">        ) &#123; &#125;</div><div class="line"></div><div class="line">    public getTranslation(lang: string): Observable&lt;any&gt; &#123;</div><div class="line"></div><div class="line">        const key: StateKey&lt;number&gt; = makeStateKey&lt;number&gt;('transfer-translate-' + lang);</div><div class="line">        const data = this.transferState.get(key, null);</div><div class="line"></div><div class="line">        // 检查transfer-state是否存在传入语言的语言包内容, 不存在则请求相应的语言包资源</div><div class="line">        if (data) &#123;</div><div class="line">            return Observable.create(observer =&gt; &#123;</div><div class="line">                observer.next(data);</div><div class="line">                observer.complete();</div><div class="line">            &#125;);</div><div class="line">        &#125; else &#123;</div><div class="line">            // 使用网络请求获取语言包资源</div><div class="line">            return new TranslateHttpLoader(this.http, this.prefix, this.suffix).getTranslation(lang);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>在客户端所使用的loader中，我们优先获取transfer-state中的语言包内容，而这时我们只要保证首次加载时客户端与服务端会使用同一个语言即可完美规避页面刷新时出现语言包中的键的问题。在我们的项目中，我使用cookie存储应用的语言类型，方便保持服务端与客户端语言类型的一致性。</p>
+<p>接下来需要在客户端根模块中引入<code>TranslateModule</code>模块：</p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment">// app.module.ts</span></div><div class="line"><span class="comment">// 参数需要与loader配置中的deps数组元素一一对应</span></div><div class="line"><span class="keyword">const</span> browserLoaderFactory = (http: HttpClient, transferState: TransferState): <span class="function"><span class="params">TranslateLoader</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> TranslateBrowserLoader(<span class="string">'/assets/i18n/'</span>, <span class="string">'.json'</span>, transferState, http);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"><span class="meta">@NgModule</span>(&#123;</div><div class="line">    declarations: [</div><div class="line">        AppComponent,</div><div class="line">        ...LayoutComponent</div><div class="line">    ],</div><div class="line">    imports: [</div><div class="line">        BrowserModule.withServerTransition(&#123; appId: <span class="string">'xxxxxx'</span> &#125;),</div><div class="line">        HttpClientModule,</div><div class="line">        SharedModule,</div><div class="line">        BrowserTransferStateModule,  <span class="comment">// 引入此模块保证transfer-state正常工作</span></div><div class="line">        TransferHttpCacheModule,</div><div class="line">        CoreModule,</div><div class="line">        Routing,</div><div class="line">        TranslateModule.forRoot(&#123;</div><div class="line">            loader: &#123;</div><div class="line">                provide: TranslateLoader,</div><div class="line">                useFactory: browserLoaderFactory,</div><div class="line">                deps: [HttpClient, TransferState]  <span class="comment">// 将HttpClient、TransferState作为依赖供loader内部使用</span></div><div class="line">            &#125;</div><div class="line">        &#125;),</div><div class="line">        CookieModule.forRoot()</div><div class="line">    ],</div><div class="line">    bootstrap: [AppComponent],</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppModule &#123;</div><div class="line">    <span class="keyword">constructor</span>(<span class="params"></span>) &#123; &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>相似地，在服务端根模块也如下引入<code>TranslateModule</code></p>
+<figure class="highlight typescript"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="comment">/**</span></div><div class="line"> * 定义语言文件加载方法</div><div class="line"> */</div><div class="line"><span class="keyword">const</span> serverLoaderFactory = (transferState: TransferState): <span class="function"><span class="params">TranslateLoader</span> =&gt;</span> &#123;</div><div class="line">    <span class="keyword">return</span> <span class="keyword">new</span> TranslateServerLoader(<span class="string">'/assets/i18n/'</span>, <span class="string">'.json'</span>, transferState);</div><div class="line">&#125;;</div><div class="line"></div><div class="line"></div><div class="line"><span class="meta">@NgModule</span>(&#123;</div><div class="line">    imports: [</div><div class="line">        AppModule,</div><div class="line">        ServerModule,</div><div class="line">        ModuleMapLoaderModule,</div><div class="line">        ServerTransferStateModule,  <span class="comment">// 引入此模块保证transfer-state正常工作</span></div><div class="line">        TranslateModule.forRoot(&#123;</div><div class="line">            loader: &#123;</div><div class="line">                provide: TranslateLoader,</div><div class="line">                useFactory: serverLoaderFactory,</div><div class="line">                deps: [TransferState]  <span class="comment">// TransferState依旧需要作为依赖项</span></div><div class="line">            &#125;</div><div class="line">        &#125;)</div><div class="line">    ],</div><div class="line">    bootstrap: [AppComponent],</div><div class="line">&#125;)</div><div class="line"><span class="keyword">export</span> <span class="keyword">class</span> AppServerModule &#123; &#125;</div></pre></td></tr></table></figure>
+<p>到此，为了消除刷新页面时所出现的毛刺现象所做的工作已经算是完成了，之后只需要正常使用ngx-translate即可。以下是我写在项目根组件中的多语言处理代码。贴出来供大家参考。</p>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">export class AppComponent implements OnInit, OnDestroy &#123;</div><div class="line">    langLoaded = false;</div><div class="line">    isBrowser = false;</div><div class="line">    $langUpdate: Subscription;</div><div class="line">    $params: Subscription;</div><div class="line"></div><div class="line">    constructor(</div><div class="line">        private messageService: MessageService,</div><div class="line">        private translate: TranslateService,</div><div class="line">        private staticApi: StaticApi,</div><div class="line">        private injector: Injector,</div><div class="line">        private cookieService: CookieService,</div><div class="line">        @Inject(PLATFORM_ID) private readonly platformId: any</div><div class="line">        ) &#123;</div><div class="line">            this.isBrowser = isPlatformBrowser(platformId);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    ngOnInit() &#123;</div><div class="line">        if (this.isBrowser) &#123;</div><div class="line">            if (!this.langLoaded) this.switchLang(this.getDefaultLang());</div><div class="line">        &#125; else &#123;</div><div class="line">            let lang;</div><div class="line">            // 获取node端所传递的COOKIE信息</div><div class="line">            const cookie = this.injector.get('COOKIE');</div><div class="line">            // 获取cookies中的语言类型</div><div class="line">            if (cookie) &#123;</div><div class="line">                const reg = new RegExp(/(custom-lang=)([^&amp;#;]*)/g);</div><div class="line">                const matchArray = reg.exec(cookie);</div><div class="line">                if (matchArray &amp;&amp; matchArray.length &gt; 0) &#123;</div><div class="line">                    lang = matchArray[2];</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">            // 在服务端获取语言包</div><div class="line">            this.translate.getTranslation(lang || 'zh');</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    ngOnDestroy() &#123;</div><div class="line">        this.$langUpdate &amp;&amp; this.$langUpdate.unsubscribe();</div><div class="line">        this.$params &amp;&amp; this.$params.unsubscribe();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 获取默认语言</div><div class="line">     */</div><div class="line">    getDefaultLang() &#123;</div><div class="line">        const browserLang = this.translate.getBrowserLang();</div><div class="line">        const cookieLang = this.cookieService.getItem('custom-lang');</div><div class="line">        return cookieLang || browserLang;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 设置应用使用的语言</div><div class="line">     */</div><div class="line">    switchLang(lang: string) &#123;</div><div class="line">        this.langLoaded = true;</div><div class="line">        // 加载语言文件</div><div class="line">        this.translate.getTranslation(lang)</div><div class="line">            .subscribe((res: any) =&gt; &#123;</div><div class="line">                res ? this.translate.use(lang)</div><div class="line">                    : this.messageService.error('加载语言文件失败');</div><div class="line">            &#125;);</div><div class="line">        // 监测语言类型更新</div><div class="line">        this.$langUpdate = this.translate.onLangChange</div><div class="line">            .subscribe((res: any) =&gt; &#123;</div><div class="line">                this.cookieService.setItem('custom-lang', res.lang);</div><div class="line">                this.updateLang(res.lang);</div><div class="line">            &#125;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    /**</div><div class="line">     * 更新html中的 - lang属性</div><div class="line">     */</div><div class="line">    updateLang(value: string) &#123;</div><div class="line">        const lang = document.createAttribute('lang');</div><div class="line">        lang.value = value;</div><div class="line">        this.el.nativeElement</div><div class="line">            .parentElement</div><div class="line">            .parentElement</div><div class="line">            .attributes</div><div class="line">            .setNamedItem(lang);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>事出必有因，在遇到莫名其妙的问题时，我们更需要沉下心去思考问题背后的原因；当问题看似无法解决时，变换一下思路可能就会柳暗花明。当我们觉得问题古怪时，可能需要审视自身是否足够了解这个技术，如本文所解决的问题，看似是资源请求时机不当，但只有对服务端渲染有一定的原理了解，才会意识到这其中所牵涉的Angular服务端渲染的“缺陷”。当然人力有限，善用GitHub，善用搜索引擎，问题总是能解决的，哈哈哈。</p>
+<blockquote>
+<p>特别鸣谢：ngx-translate/core <a href="https://github.com/ngx-translate/core/issues/754" target="_blank" rel="external">issue #754</a> 中的@peterpeterparker 与 @ocombe，@ocombe指出了问题的根本原因，@peterpeterparker则贴出了完整的代码示例。</p>
+</blockquote>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">疑难杂症</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
         		</li>
       		
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://fortnight.site/2018/10/26/小谈Angular SSR项目的国际化/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
   
   
-    </div></section>
+    <a href="/2018/10/05/译-使用Scroll Snapping实现CSS控制页面滚动/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">「译」在CSS中使用Scroll Snapping控制页面滚动行为</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+  
+  
+  
+  <div id="cloud-tie-wrapper" class="cloud-tie-wrapper"></div>
+<script src="https://img1.cache.netease.com/f2e/tie/yun/sdk/loader.js"></script>
+<script>
+var cloudTieConfig = {
+  url: document.location.href, 
+  sourceId: "小谈Angular SSR项目的国际化",
+  productKey: "25653f4c9e5a4bceb34f101966974078",
+  target: "cloud-tie-wrapper"
+};
+var yunManualLoad = true;
+Tie.loader("aHR0cHM6Ly9hcGkuZ2VudGllLjE2My5jb20vcGMvbGl2ZXNjcmlwdC5odG1s", true);
+</script>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -250,9 +385,9 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
+		isPost: true,
 		isArchive: false,
-		isTag: true,
+		isTag: false,
 		isCategory: false,
 		open_in_new: false,
 		root: "/",
