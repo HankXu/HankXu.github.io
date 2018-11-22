@@ -1,3 +1,4 @@
+http://fortnight.site/2018/11/23/Angular模板引用变量的作用域限制/
 http://fortnight.site/2018/10/26/小谈Angular SSR项目的国际化/
 http://fortnight.site/2018/10/05/译-使用Scroll Snapping实现CSS控制页面滚动/
 http://fortnight.site/2017/09/09/平时忽略的HTML标签/

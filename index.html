@@ -168,6 +168,105 @@
           <div id="js-content" class="content-ll">
             
   
+    <article id="post-Angular模板引用变量的作用域限制" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2018/11/23/Angular模板引用变量的作用域限制/">Angular模板引用变量的作用域限制</a>
+    </h1>
+  
+
+        
+        <a href="/2018/11/23/Angular模板引用变量的作用域限制/" class="archive-article-date">
+  	<time datetime="2018-11-22T16:30:19.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2018-11-23</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <blockquote>
+<p>特别声明，本文由<a href="http://fortnight.site/">Fortnight_许帅博</a>原创，受限于作者能力，文章或存在不足，欢迎大家指出。如需转载，烦请注明出处。</p>
+</blockquote>
+<h3 id="Angular模板引用变量"><a href="#Angular模板引用变量" class="headerlink" title="Angular模板引用变量"></a>Angular模板引用变量</h3><p>如果你曾经参与过Angular项目的开发，那么你可能会一眼就看出谁会是我们的主角：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">input</span> <span class="attr">type</span>=<span class="string">"text"</span> [<span class="attr">value</span>]=<span class="string">"value"</span> #<span class="attr">name</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>若你对此陌生，也无须在意。示例代码的<code>&lt;input&gt;</code>标签的属性中存在一个画风明显与其他属性不同的家伙——<code>#name</code>，这种以一个<code>#</code>开头命名，被附加在DOM元素上的属性，被称为模板引用变量（template reference variables）。</p>
+<p>那么何为模板引用变量呢？文档是这样描述的：</p>
+<blockquote>
+<p>A template reference variable is often a reference to a DOM element within a template. It can also be a reference to an Angular component or directive or a web component.</p>
+</blockquote>
+<p>模板引用变量可以是Angualr模板中的DOM元素、Angular组件（指令），甚至Web组件的引用，而它具体是什么，则取决于它所依附的元素（不使用指令进行干预时）。如前文示例代码中的模板引用变量<code>name</code>就是<code>&lt;input&gt;</code>这一DOM元素的引用。</p>
+<p>既然模板引用变量是模板中某一元素的引用，那理所当然地我们便可以通过这个引用变量”<em>触及</em>“该模板元素的”<em>实体</em>“。这在实际地开发中是十分实用的，考虑以下代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">app-component</span> #<span class="attr">component</span> [<span class="attr">input</span>]=<span class="string">"variable"</span>&gt;</span><span class="tag">&lt;/<span class="name">app-component</span>&gt;</span></div><div class="line">&#123;&#123; component.input &#125;&#125;</div><div class="line">&#123;&#123; component.func() &#125;&#125;</div></pre></td></tr></table></figure>
+<p>通过模板引用变量我们获得了<code>app-component</code>组件的<strong>实例</strong>引用，这使得我们可以轻松地在模板中访问<code>app-component</code>组件内部的成员。在某些情境下，这种能力给我们的开发提供了很大的助力。</p>
+<h3 id="模板引用变量的作用域"><a href="#模板引用变量的作用域" class="headerlink" title="模板引用变量的作用域"></a>模板引用变量的作用域</h3><blockquote>
+<p>You can refer to a template reference variable <strong>anywhere</strong> in the template.</p>
+</blockquote>
+<p>在文档中，官方毫不含糊地向我们表示：模板引用变量可以在模板中的任何地方使用。最骚的是，“任何地方”还被特别加粗。我们在大多数的时候，并不会对这句话产生疑问，但也许某天你会怀疑这个<strong>anywhere</strong>是否真实。有如下的代码：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">app-card</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ng-template</span> #<span class="attr">body</span>&gt;</span></div><div class="line">        <span class="tag">&lt;<span class="name">app-component</span> #<span class="attr">component</span> [<span class="attr">input</span>]=<span class="string">"variable"</span>&gt;</span><span class="tag">&lt;/<span class="name">app-component</span>&gt;</span></div><div class="line">    <span class="tag">&lt;/<span class="name">ng-template</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">ng-template</span> #<span class="attr">footer</span>&gt;</span></div><div class="line">        &#123;&#123;component.input&#125;&#125;</div><div class="line">    <span class="tag">&lt;/<span class="name">ng-template</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">app-card</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>当代码运行后，我们将会在控制台看到这样的错误提示：</p>
+<blockquote>
+<p>TypeError: Cannot read property ‘input’ of undefined</p>
+</blockquote>
+<p>为什么<code>component</code>会是undefined？</p>
+<p>答案其实很明显，模板引用对象可以在模板中的<strong>任何地方</strong>使用，但此例中<code>component</code>的定义与使用却并不在一个<strong>template</strong>中。文档中所描述的<em>template</em>并不能直接与<em>组件的模板文件</em>划上等号。当我们使用<code>ng-template</code>时，会在当前模板的内部再建立一个新的模板，它的内部将无法直接被外部模板触及。</p>
+<p>当<em>template</em>的定义明确以后，一切都简单了：模板引用变量存在作用域，其作用域是它所处的<em>template</em>，而非它所在的模板文件，同时它可以在其作用域内的任何地方被使用。</p>
+<p>最后，我们再看一个例子：</p>
+<figure class="highlight html"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="tag">&lt;<span class="name">div</span> *<span class="attr">ngIf</span>=<span class="string">"true"</span>&gt;</span></div><div class="line">    <span class="tag">&lt;<span class="name">app-component</span> #<span class="attr">component</span> [<span class="attr">input</span>]=<span class="string">"variable"</span>&gt;</span><span class="tag">&lt;/<span class="name">app-component</span>&gt;</span></div><div class="line"><span class="tag">&lt;/<span class="name">div</span>&gt;</span></div><div class="line">&#123;&#123;component.input&#125;&#125;</div></pre></td></tr></table></figure>
+<p>当这段代码运行后，我们依旧会在控制台看到：</p>
+<blockquote>
+<p>TypeError: Cannot read property ‘input’ of undefined</p>
+</blockquote>
+<p>至于背后的原因，我便作为小小的悬念留给大家，由大家自己去了解。</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2018/11/23/Angular模板引用变量的作用域限制/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+
+
+
+
+  
     <article id="post-小谈Angular SSR项目的国际化" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -219,11 +318,11 @@
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">Angular</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
       		
 		</ul>
@@ -300,15 +399,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -374,19 +473,19 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">HTML</a>
         		</li>
       		
 		</ul>
@@ -459,15 +558,15 @@
 		<ul class="article-tag-list">
 			 
         		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">笔记</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
         			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">前端</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">学习</a>
         		</li>
       		 
         		<li class="article-tag-list-item">
@@ -661,7 +760,23 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">Angular</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">学习</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">Less</a>
               </li>
              
               <li class="article-tag-list-item">
@@ -673,27 +788,11 @@ return o(t,i(n),arguments.length<3?void 0:u(arguments[2]))}})},function(t,n,r){v
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">笔记</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color5">HTML</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">前端</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">Less</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">翻译</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">Angular</a>
               </li>
             
             <div class="clearfix"></div>

@@ -4,6 +4,27 @@
 
     
   <url>
+    <loc>http://fortnight.site/2018/11/23/Angular%E6%A8%A1%E6%9D%BF%E5%BC%95%E7%94%A8%E5%8F%98%E9%87%8F%E7%9A%84%E4%BD%9C%E7%94%A8%E5%9F%9F%E9%99%90%E5%88%B6/</loc>
+    <lastmod>2018-11-22T16:35:12.061Z</lastmod>
+    <data>
+        <display>
+        <title>Angular模板引用变量的作用域限制</title>
+        <pubTime>2018-11-22T16:30:19.000Z</pubTime>
+        
+        <tag>笔记</tag>
+         
+        <tag>Angular</tag>
+         
+        <tag>前端</tag>
+         
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://fortnight.site/2018/10/26/%E5%B0%8F%E8%B0%88Angular%20SSR%E9%A1%B9%E7%9B%AE%E7%9A%84%E5%9B%BD%E9%99%85%E5%8C%96/</loc>
     <lastmod>2018-10-25T16:14:49.778Z</lastmod>
     <data>
@@ -13,9 +34,9 @@
         
         <tag>笔记</tag>
          
-        <tag>前端</tag>
-         
         <tag>Angular</tag>
+         
+        <tag>前端</tag>
          
          
            
@@ -32,11 +53,11 @@
         <title>「译」在CSS中使用Scroll Snapping控制页面滚动行为</title>
         <pubTime>2018-10-05T13:20:35.000Z</pubTime>
         
+        <tag>前端</tag>
+         
         <tag>学习</tag>
          
         <tag>HTML</tag>
-         
-        <tag>前端</tag>
          
         <tag>翻译</tag>
          
@@ -55,13 +76,13 @@
         <title>平时忽略的HTML标签</title>
         <pubTime>2017-09-09T13:05:59.000Z</pubTime>
         
-        <tag>学习</tag>
-         
         <tag>笔记</tag>
          
-        <tag>HTML</tag>
-         
         <tag>前端</tag>
+         
+        <tag>学习</tag>
+         
+        <tag>HTML</tag>
          
          
            
@@ -79,11 +100,11 @@
         <title>Less学习的笔记</title>
         <pubTime>2017-05-12T01:54:19.000Z</pubTime>
         
-        <tag>学习</tag>
-         
         <tag>笔记</tag>
          
         <tag>前端</tag>
+         
+        <tag>学习</tag>
          
         <tag>Less</tag>
          
